@@ -2,4 +2,4 @@
   hosts: mariadbs
   become: yes
   roles:
-    - fauust.mariadb
+     - { role: adriagalin.motd }
