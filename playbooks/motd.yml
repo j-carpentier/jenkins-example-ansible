@@ -1,4 +1,4 @@
-- name: MariaDB installation
+- name: Setup dynamic MOTD
   hosts: mariadbs
   become: yes
   vars:
