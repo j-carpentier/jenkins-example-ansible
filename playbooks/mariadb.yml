@@ -2,6 +2,11 @@
   hosts: mariadbs
   become: yes
   tasks:
+    - name: Install firewalld
+      yum:
+        name:
+          - firewalld
+        state: latest
     - name: enable and start firewalld service
       systemd:
         name: firewalld
