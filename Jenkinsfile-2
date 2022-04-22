@@ -4,9 +4,9 @@ pipeline {
    ANSIBLE_PRIVATE_KEY=credentials('mariadb-private-key') 
   }
   stages {
-    stage('Hello') {
+    stage('Setup motd') {
       steps {
-        sh 'ansible-galaxy install fauust.mariadb'
+        sh 'ansible-galaxy install adriagalin.motd'
         sh 'ansible-playbook -i inventory/mariadb.hosts --private-key=$ANSIBLE_PRIVATE_KEY playbooks/mariadb.yml'
       }
     }
