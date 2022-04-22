@@ -2,6 +2,7 @@
   hosts: mariadbs
   become: yes
   vars:
+    ag_motd_remove_default_config: true
     ag_motd_sysadmins_signature: IT Department SysOps team
     ag_motd_sysadmins_email: sysopsteam@company.org
   roles:
