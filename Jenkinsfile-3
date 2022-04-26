@@ -13,9 +13,16 @@ pipeline {
     stage('Clone kubespray v2.17') {
       steps {
         sh 'git clone https://github.com/kubernetes-sigs/kubespray.git'
-        sh 'cd kubespray'
-        sh 'git checkout release-2.17'
       }
+    }
+    stage('Switch to version 2.17') {
+      steps {
+        sh 'cd kubespray'
+        sh 'git fetch'
+        sh 'git branch --all'
+        sh 'git checkout release-2.17'
+        sh 'git branch'
+      }  
     }
     stage('Install Ansible Requirement') {
       steps {
