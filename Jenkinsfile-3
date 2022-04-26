@@ -9,8 +9,6 @@ pipeline {
         sh 'python3 -m venv venv'
         sh 'source venv/bin/activate'
         sh 'sudo dnf install python39-pip -y'
-        sh 'python --version'
-        sh 'pip --version'
       }
     }
     stage('Clone kubespray repo') {
