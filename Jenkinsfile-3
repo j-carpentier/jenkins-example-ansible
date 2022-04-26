@@ -17,7 +17,7 @@ pipeline {
     }
     stage('Clone kubespray repo') {
       steps {
-        sh 'git clone https://github.com/kubernetes-sigs/kubespray.git'
+        sh 'git clone https://github.com/kubernetes-sigs/kubespray.git; echo "Kubespray repository cloned"'
       }
     }
     stage('Switch to version 2.17') {
