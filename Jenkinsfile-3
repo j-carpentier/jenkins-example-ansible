@@ -4,10 +4,13 @@ pipeline {
    ANSIBLE_PRIVATE_KEY=credentials('mariadb-private-key') 
   }
   stages {
-    stage('Setup virtualenv') {
+    stage('Setup pip/virtualenv') {
       steps {
         sh 'python3 -m venv venv'
         sh 'source venv/bin/activate'
+        sh 'sudo dnf install python39-pip -y'
+        sh 'python --version'
+        sh 'pip --version'
       }
     }
     stage('Clean working dir') {
@@ -21,12 +24,9 @@ pipeline {
         git url: 'https://github.com/kubernetes-sigs/kubespray.git', branch: 'release-2.17'
       }
     }
-    stage('Switch to version 2.17') {
+    stage('Check folder/version') {
       steps {
-        sh 'cd kubespray'
-        sh 'git fetch'
-        sh 'git branch --all'
-        sh 'git checkout release-2.17'
+        sh 'pwd'
         sh 'git branch'
       }  
     }
