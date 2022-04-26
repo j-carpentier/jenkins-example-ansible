@@ -10,6 +10,11 @@ pipeline {
         sh 'source venv/bin/activate'
       }
     }
+    stage('Clean working dir') {
+      steps {
+        sh 'rm -rf kubespray'
+      }
+    }
     stage('Clone kubespray repo') {
       steps {
         sh 'git clone https://github.com/kubernetes-sigs/kubespray.git'
