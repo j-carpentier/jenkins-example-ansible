@@ -10,7 +10,7 @@ pipeline {
         sh 'source venv/bin/activate'
       }
     }
-    stage('Clone kubespray v2.17') {
+    stage('Clone kubespray repo') {
       steps {
         sh 'git clone https://github.com/kubernetes-sigs/kubespray.git'
       }
