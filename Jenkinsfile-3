@@ -13,14 +13,8 @@ pipeline {
         sh 'pip --version'
       }
     }
-    stage('Clean working dir') {
-      steps {
-        sh 'rm -rf kubespray'
-      }
-    }
     stage('Clone kubespray repo') {
       steps {
-        sh 'mkdir kubespray; cd kubespray'
         git url: 'https://github.com/kubernetes-sigs/kubespray.git', branch: 'release-2.17'
       }
     }
