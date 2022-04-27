@@ -37,7 +37,7 @@ pipeline {
     }
     stage('Deploy Kubespray') {
       steps {
-        sh 'source venv/bin/activate && ansible-playbook -i inventory/mycluster/hosts.yaml --private-key=$ANSIBLE_PRIVATE_KEY --become --become-user=ubuntu cluster.yml'
+        sh 'source venv/bin/activate && ansible-playbook -i inventory/mycluster/hosts.yaml --private-key=$ANSIBLE_PRIVATE_KEY --become --become-user=ubuntu --user=ubuntu cluster.yml'
       }
     }
   }
