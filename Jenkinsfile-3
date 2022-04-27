@@ -4,9 +4,10 @@ pipeline {
    ANSIBLE_PRIVATE_KEY=credentials('mariadb-private-key') 
   }
   stages {
-    stage('Setup pip/virtualenv') {
+    stage('Clean & Setup pip/virtualenv') {
       steps {
-        sh 'rm -rf venv/'
+        sh 'rm -rf c
+        sh 'rm -rf inventory/mycluster/'
         sh 'python3 -m venv venv'
         sh 'source venv/bin/activate'
         sh 'sudo dnf install python39-pip -y'
