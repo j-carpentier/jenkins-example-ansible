@@ -6,7 +6,6 @@ pipeline {
   stages {
     stage('Clean & Setup pip/virtualenv') {
       steps {
-        sh 'rm -rf c
         sh 'rm -rf inventory/mycluster/'
         sh 'python3 -m venv venv'
         sh 'source venv/bin/activate'
