@@ -37,7 +37,7 @@ pipeline {
     }
     stage('Deploy Kubespray') {
       steps {
-        sh 'source venv/bin/activate && ansible-playbook -i inventory/mycluster/hosts.yaml --private-key=$ANSIBLE_PRIVATE_KEY --become --user=ubuntu cluster.yml --extra-vars "supplementary_addresses_in_ssl_keys=10.67.12.3"'
+        sh 'source venv/bin/activate && ansible-playbook -i inventory/mycluster/hosts.yaml --private-key=$ANSIBLE_PRIVATE_KEY --become --user=ubuntu cluster.yml --extra-vars "supplementary_addresses_in_ssl_keys=[10.67.12.3]"'
       }
     }
   }
